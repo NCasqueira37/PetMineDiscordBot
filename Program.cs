@@ -7,7 +7,12 @@ namespace PetMineBot;
 
 class Program
 {
+    // SETTINGS
     private static string token = "";
+    private static ulong channelId = 0;
+    // SETTINGS
+
+
     private static DiscordSocketClient? client;
     public static async Task Main()
     {
@@ -30,19 +35,22 @@ class Program
         {
             DateTime currentTime = DateTime.Now;
             if (
-            (currentTime.Hour == 5 && currentTime.Minute == 55) ||
-            (currentTime.Hour == 11 && currentTime.Minute == 55) ||
-            (currentTime.Hour == 17 && currentTime.Minute == 55) ||
-            (currentTime.Hour == 23 && currentTime.Minute == 55)
+            (currentTime.Hour == 5 && currentTime.Minute == 40) ||
+            (currentTime.Hour == 11 && currentTime.Minute == 40) ||
+            (currentTime.Hour == 17 && currentTime.Minute == 40) ||
+            (currentTime.Hour == 23 && currentTime.Minute == 40)
             )
             {
                 if (client != null)
                 {
                     // Change to correct channel id
-                    var channel = client.GetChannel(1358521192579072130) as IMessageChannel;
+                    var channel = client.GetChannel(channelId) as IMessageChannel;
                     if (channel != null)
                     {
-                        await channel.SendMessageAsync("@everyone Clan Wars in 5 minutes");
+                        // Send the message
+                        var message = await channel.SendMessageAsync("@everyone The next raid starts in 20 minutes -- react with 👍 if you're joining!");
+                        var emoji = new Emoji("👍");
+                        await message.AddReactionAsync(emoji);
                         Console.WriteLine("Message Sent");
                         await Task.Delay(80000);
                     }
