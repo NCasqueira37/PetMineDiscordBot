@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PetMineBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c930b3ac5d33639c26f87fcd767b1049727ddd2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea7bd6273b556b9a84e1d47d5433e8fd64f3bb67")]
 [assembly: System.Reflection.AssemblyProductAttribute("PetMineBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PetMineBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -12,6 +12,7 @@ class Program
     private static ulong channelId = 0;
     private static ulong guildID = 0;
     private static bool isRunning = true;
+    private static string notificationText = "@everyone ⚡SUPER CHARGED⚡ Changed!";
     // SETTINGS
 
 
@@ -68,12 +69,13 @@ class Program
             .WithDescription("Turns the bot off")
             
         };
+        
         // Register Commands
-        foreach(var cmd in commands) {
+        foreach (var cmd in commands)
+        {
             await guild.CreateApplicationCommandAsync(cmd.Build());
         }
         System.Console.WriteLine("Commands Registered");
-
 
         // Get channel to message
         var channel = await client.GetChannelAsync(channelId) as IMessageChannel;
@@ -83,11 +85,12 @@ class Program
         {
             while (isRunning)
             {
-                if (DateTime.Now.Minute == 50)
+                var currentTime = DateTime.Now;
+                if (currentTime.Hour == 20 && currentTime.Minute == 30)
                 {
                     if (channel != null)
                     {
-                        await channel.SendMessageAsync("@everyone Egg Hunt in 10 minutes");
+                        await channel.SendMessageAsync(notificationText);
                         await Task.Delay(80000);
                     }
                 }
