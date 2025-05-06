@@ -86,7 +86,7 @@ class Program
             while (isRunning)
             {
                 var currentTime = DateTime.Now;
-                if (currentTime.Hour == 20 && currentTime.Minute == 30)
+                if (currentTime.Hour == 20)
                 {
                     if (channel != null)
                     {
